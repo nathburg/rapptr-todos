@@ -12,8 +12,7 @@ const signInAndLogin = async () => {
 	await request(app).post('/users').send(mockUser);
 	const agent = request.agent(app);
 	await agent.post('/users/sessions').send({
-		email: 'kawhi.leonard@rapptr.com',
-		password: 'toronto123',
+		...mockUser,
 	});
 
 	return agent;
@@ -49,7 +48,9 @@ describe('user routes', () => {
 
 	it('signs user out at DELETE /sessions', async () => {
 		const agent = await signInAndLogin();
-		const signOutRes = await agent.delete('/users/sessions');
-		expect(signOutRes.status).toBe(204);
+		const loggedInRes = await agent.delete('/users/sessions');
+		expect(loggedInRes.status).toBe(204);
+		const loggedOutRes = await agent.delete('/users/sessions');
+		expect(loggedOutRes.status).toBe(401);
 	});
 });
