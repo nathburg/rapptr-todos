@@ -25,4 +25,15 @@ describe('user routes', () => {
 			email,
 		});
 	});
+
+	it('logs in a user', async () => {
+		await request(app).post('/users').send(mockUser);
+		const res = await request(app)
+			.post('/users/sessions')
+			.send({
+				email: 'kawhi.leonard@rapptr.com',
+				password: 'toronto123',
+			});
+		expect(res.status).toEqual(200);
+	});
 });
