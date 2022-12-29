@@ -105,11 +105,12 @@ describe('todos routes', () => {
 		const resTwo = await agentTwo.get('/todos/1');
 		expect(resTwo.status).toBe(403);
 	});
-	//   it("marks a todo complete (soft delete) at DELETE /todos/:id", async () => {
-	//     const agent = await signInAndLogin();
-	//     await agent.post("/todos").send({ description: "Clean dishes" });
-	//     await agent.delete("/todos/1");
-	//     const res = await agent.get("/posts");
-	//     expect(res.body).toEqual({ message: "You have no todos." });
-	//   });
+
+	it('marks a todo complete (soft delete) at DELETE /todos/:id', async () => {
+		const agent = await signInAndLogin();
+		await agent.post('/todos').send({ description: 'Clean dishes' });
+		await agent.delete('/todos/1');
+		const res = await agent.get('/todos');
+		expect(res.body).toEqual({ message: 'You have no todos.' });
+	});
 });
