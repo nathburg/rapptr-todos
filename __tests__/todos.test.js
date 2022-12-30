@@ -130,4 +130,26 @@ describe("todos routes", () => {
       ]
     `);
   });
+
+  it("returns all user's todos, including completed ones, at GET /todos/all", async () => {
+    const agent = await signInAndLogin();
+    await agent.post("/todos").send({ description: "Clean dishes" });
+    await agent.post("/todos").send({ description: "Break dishes" });
+    await agent.delete("/todos/1");
+    const res = await agent.get("/todos/all");
+    expect(res.body).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "description": "Break dishes",
+          "id": "2",
+          "isCompleted": false,
+        },
+        Object {
+          "description": "Clean dishes",
+          "id": "1",
+          "isCompleted": true,
+        },
+      ]
+    `);
+  });
 });

@@ -98,4 +98,17 @@ describe('user routes', () => {
 			.send({ email: 'mock@user.com', password: 'password' });
 		expect(resTwo.status).toBe(401);
 	});
+
+	it('checks if email is already taken when signing up', async () => {
+		await request(app)
+			.post('/users')
+			.send({ ...mockUser });
+		const res = await request(app)
+			.post('/users')
+			.send({ ...mockUser });
+		expect(res.body).toEqual({
+			message: 'That email address is taken.',
+			status: 409,
+		});
+	});
 });
