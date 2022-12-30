@@ -55,7 +55,7 @@ describe('user routes', () => {
 	it('signs user out at DELETE /sessions', async () => {
 		const agent = await signInAndLogin();
 		const loggedInRes = await agent.delete('/users/sessions');
-		expect(loggedInRes.status).toBe(204);
+		expect(loggedInRes.status).toBe(200);
 		const loggedOutRes = await agent.delete('/users/sessions');
 		expect(loggedOutRes.status).toBe(401);
 	});

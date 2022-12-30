@@ -33,6 +33,7 @@ POST an email and password to `/users/sessions` to log in, if that user info has
 ![sign in](/assets/sign-in.png)
 
 DELETE `/users/sessions` to sign out. This route is authenticated.
+![sign out](/assets/sign-out.png)
 
 GET `/users/id` returns info of the user with that id.
 ![user info](/assets/user-info.png)
