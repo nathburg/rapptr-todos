@@ -22,7 +22,7 @@ The database is made of two tables, `users` and `todos`.
 
 `users` has three columns: `id`, `email`, and `password_hash`.
 
-`todos` has four columns: `id`, `user_id`, `description`, and `is_completed`. `Description` is where the todo content is kept. `is_completed` is a boolean.
+`todos` has four columns: `id`, `user_id`, `description`, and `is_completed`. `description` is where the todo content is kept. `is_completed` is a boolean.
 
 ## Users Routes
 
