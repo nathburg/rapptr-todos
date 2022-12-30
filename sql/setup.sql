@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS todos;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    email VARCHAR,
+    password_hash VARCHAR NOT NULL
+);
+
+CREATE TABLE todos (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_id BIGINT,
+    description VARCHAR NOT NULL,
+    is_completed BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
