@@ -1,12 +1,14 @@
 # Todos API
 
-This Todos API was written with Express.js and uses a PostgreSQL database. With it you can sign in, make new todos, edit your todos, mark them as finished, etc. It's easiest to explore with an API tester like Postman.
+This Todos API was written with Express.js and uses a PostgreSQL database. With it you can sign in, make new todos, edit your todos, mark them as finished, etc. **It's best to explore with an API tester like Postman.**
 
 ## Getting Started
 
-You need Postgres installed to get the database running. [Here are instructions](https://www.postgresqltutorial.com/postgresql-getting-started/install-postgresql/) for installing Postgres if you don't have it already. This project uses Postgres's default server port 5432.
+You need Postgres installed to get the database running. [Here are instructions](https://www.postgresqltutorial.com/postgresql-getting-started/install-postgresql/) for installing Postgres if you don't have it already.
 
-After cloning the repo locally, rename the .env.example file to .env to access the variables.
+After cloning the repo locally, rename the `.env.example` file to `.env` to access the variables.
+
+In `.env` you'll see this: `DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres`. The URI's general structure is `postgres://YourUserName:YourPassword@YourHostname:5432/YourDatabaseName` and you may need to modify it to work with your local Postgres parameters. (Meaning, if your username, password, and database name are not all `postgres` like on my computer.)
 
 Run `npm i` for dependencies.
 
