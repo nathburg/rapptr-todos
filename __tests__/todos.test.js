@@ -52,8 +52,6 @@ describe("todos routes", () => {
         Object {
           "description": "Make New Years resolution.",
           "id": "1",
-          "isCompleted": false,
-          "userId": "1",
         },
       ]
     `);
@@ -68,8 +66,6 @@ describe("todos routes", () => {
         Object {
           "description": "Clean dishes",
           "id": "1",
-          "isCompleted": false,
-          "userId": "1",
         },
       ]
     `);
@@ -85,8 +81,6 @@ describe("todos routes", () => {
         Object {
           "description": "Eat raw meat.",
           "id": "2",
-          "isCompleted": false,
-          "userId": "2",
         },
       ]
     `);
@@ -124,8 +118,6 @@ describe("todos routes", () => {
         Object {
           "description": "Break dishes",
           "id": "1",
-          "isCompleted": false,
-          "userId": "1",
         },
       ]
     `);
