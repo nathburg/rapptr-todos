@@ -91,6 +91,14 @@ describe("todos routes", () => {
     await agentOne.post("/todos").send({ description: "Clean dishes" });
     const resOne = await agentOne.get("/todos/1");
     expect(resOne.status).toBe(200);
+    expect(resOne.body).toMatchInlineSnapshot(`
+      Object {
+        "description": "Clean dishes",
+        "id": "1",
+        "isCompleted": false,
+        "userId": "1",
+      }
+    `);
     await agentOne.delete("/users/sessions");
     const agentTwo = await signInAndLogin({
       email: "v.lossy@rapptr.com",
