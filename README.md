@@ -31,7 +31,7 @@ The database is made of two tables, `users` and `todos`.
 POST an email and password to `/users` to sign up a new user. This route is "inauthenticated" (probably not what it should be called), meaning it can't be accessed if you're signed in. The same email can't be registered twice.
 ![sign up](/assets/sign-up.png)
 
-POST an email and password to `/users/sessions` to log in, if that user info has been signed up. This route is also inauthenticated.
+POST an email and password to `/users/sessions` to log in, if that user is signed up. This route is also inauthenticated.
 ![sign in](/assets/sign-in.png)
 
 DELETE `/users/sessions` to sign out. This route is authenticated.
